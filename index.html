@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, My Love!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+    :root {
+      --purple-light: #e6d7f9;
+      --purple-dark: #7b4dcc;
+      --accent: #9252d9;
+      --text-light: #fff;
+      --shadow-purple: rgba(146, 82, 217, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f4ebfc 0%, #d9ccf9 25%, #c1b8f8 50%, #a88ef7 75%, #9252d9 100%);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      color: #3a1d6b;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      background-image: radial-gradient(white 1.5px, transparent 1.5px),
+                        radial-gradient(white 1.5px, transparent 1.5px);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      opacity: 0.2;
+      animation: twinkle 5s linear infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.1; }
+      100% { opacity: 0.25; }
+    }
+
+    .section {
+      position: relative;
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 0;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    #section0 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .frame {
+      border: 3px solid var(--accent);
+      border-radius: 30px;
+      padding: 40px 30px;
+      box-shadow:
+        0 0 30px rgba(146, 82, 217, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      margin: 20px auto;
+      animation: fadeIn 1.5s ease forwards;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    #section0 h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    #section0 p {
+      font-size: 1.1rem;
+      color: #5e3c9a;
+      margin-bottom: 20px;
+    }
+
+    #password-input {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      padding: 10px;
+      border: 2px solid var(--accent);
+      border-radius: 5px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(146, 82, 217, 0.3);
+      transition: border-color 0.3s ease;
+    }
+
+    #password-input:focus {
+      border-color: #6e39b0;
+      outline: none;
+      box-shadow: 0 0 15px rgba(110, 57, 176, 0.6);
+    }
+
+    #submit-btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      background: var(--accent);
+      color: var(--text-light);
+      padding: 10px 30px;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 15px rgba(146, 82, 217, 0.6);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    #submit-btn:hover, #submit-btn:focus {
+      background: #6e39b0;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      min-height: 1.2rem;
+    }
+
+    #greeting {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--purple-dark);
+    }
+
+    .image-container {
+      max-width: 280px;
+      margin: 20px;
+      filter: drop-shadow(0 4px 4px var(--shadow-purple));
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 0 15px var(--purple-dark);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 25px;
+    }
+
+    .images-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    #next-btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      background: var(--accent);
+      color: var(--text-light);
+      padding: 15px 45px;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 15px rgba(146, 82, 217, 0.6);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      z-index: 1;
+    }
+
+    #next-btn:hover, #next-btn:focus {
+      background: #6e39b0;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    #section1 {
+      display: none;
+    }
+
+    #section2 {
+      display: none;
+      background: linear-gradient(135deg, #fef9f6, #fce8e9);
+      position: relative;
+      overflow: visible;
+      padding: 80px 40px 60px;
+      z-index: 0;
+      box-shadow:
+        inset 0 0 35px #f9e1df,
+        0 10px 40px rgba(169, 95, 128, 0.25);
+      border-radius: 30px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    #birthday-message {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.9rem;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #933d6a;
+      text-align: left;
+      position: relative;
+      padding: 40px 50px;
+      background: linear-gradient(135deg, #fff0f4 0%, #feeef3 100%);
+      box-shadow:
+        0 0 20px rgba(255, 192, 203, 0.5),
+        inset 0 0 25px rgba(255, 192, 203, 0.3);
+      border: 2px solid #fbdbdd;
+      border-radius: 25px;
+    }
+
+    #section2::before, #section2::after {
+      content: "💜";
+      position: absolute;
+      font-size: 3rem;
+      color: #e875a7aa;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #section2::before {
+      top: 20px;
+      left: 20px;
+      transform: rotate(-25deg);
+    }
+
+    #section2::after {
+      bottom: 20px;
+      right: 20px;
+      transform: rotate(25deg);
+    }
+
+    #hearts-container {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: visible;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #9252d9cc;
+      opacity: 0.2;
+      filter: drop-shadow(0 0 4px #ac7fe8cc);
+      animation: fallLinear linear infinite;
+      clip-path: polygon(
+        50% 15%,
+        80% 0%,
+        100% 20%,
+        85% 50%,
+        50% 100%,
+        15% 50%,
+        0% 20%,
+        20% 0%
+      );
+    }
+
+    @keyframes fallLinear {
+      0% { transform: translateY(-30px); opacity: 0; }
+      10% { opacity: 0.15; }
+      80% { opacity: 0.15; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      #greeting {
+        font-size: 2.8rem;
+        padding: 0 10px;
+      }
+      .image-container {
+        max-width: 200px;
+      }
+      #birthday-message {
+        font-size: 1.4rem;
+        padding: 30px 30px;
+        max-width: 90vw;
+      }
+      #section2 {
+        margin: 30px 15px 40px;
+        padding: 60px 25px 40px;
+      }
+      #next-btn {
+        padding: 12px 36px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bg-music-birthday" loop preload="auto" src="Birthday.mp3"></audio>
+<audio id="bg-music-romance" loop preload="auto" src="143.mp3"></audio>
+
+<section id="section0" class="section">
+  <div class="frame">
+    <h1>Please enter your password</h1>
+    <p>Hint: Birthday mo love love</p>
+    <input type="text" id="password-input" placeholder="Enter password" />
+    <button id="submit-btn">Submit</button>
+    <p id="error-message" class="error-message" style="display: none;"></p>
+  </div>
+</section>
+
+<section id="section1" class="section" style="display: none;">
+  <h1 id="greeting">Happy Birthday, My Love! 🎂</h1>
+
+  <div class="images-row">
+    <div class="image-container">
+      <img src="1.jpg" alt="Birthday gift" />
+    </div>
+    <div class="image-container">
+      <img src="bebe.jpg" alt="Image 1" />
+    </div>
+    <div class="image-container">
+      <img src="2.jpg" alt="Image 3" />
+    </div>
+  </div>
+
+  <button id="next-btn">Next</button>
+  <p style="margin-top: 20px; font-size: 1.2rem; color: #3a1d6b;">PS: Finish the Birthday song first my love, before clicking the Next button.</p>
+</section>
+
+<section id="section2" class="section" style="display: none;">
+  <p id="birthday-message" tabindex="0">
+    Hi lovee! This is your day today. Happy, happy 19th birthday sa aking cutie, pretty, and beautiful love love. Sana magustuhan mo itong simple gift ko para sa’yo. Ginawa ko itong website na ’to dahil gusto kong malaman mo na gagawin ko ang lahat at ibibigay ko ang lahat para lang malaman mo at maparamdam ko, at mapatunayan ko sa’yo na mahal na mahal na mahal kita. Ang wish ko po para sa’yo ay sana maging masaya ka palagi sa araw-araw. Sana maraming blessings pa ang dumating sa’yo, at higit sa lahat, sana palagi kang healthy. Palagi mong tatandaan na andito lang ako, palaging nasa tabi mo, susuportahan ka sa kahit anong gusto mo. Palagi mong tatandaan na kahit anong mangyari, mahal na mahal kita sobra sobra, at palagi kitang pipiliin araw-araw. Tandaan mo din na kahit anong pagsubok ang pagdaanan natin, andito lang ako palagi sa tabi mo palagi kang uunawain at pipiliin araw-araw. Kahit may tampuhan, away, at misunderstanding tayo, palagi mong tatandaan na hindi ako magsasawang intindihin at mahalin ka sa mga araw na ’yon. Nagpapasalamat ako dahil ikaw yung babaeng nagparamdam sa’kin na worth it lahat ng paglaban ko. Ikaw yung babaeng nagparamdam na worth it akong mahalin, at higit sa lahat, ikaw yung babaeng nagparamdam ng saya at kilig sa buhay ko. Totoo yung sinasabi ko na hinding-hindi magbabago yung pananaw ko na sobrang swerte ko sa’yo dahil ayun ang tunay at totoo. Super duper happy, thankful, and grateful ako palagi lalo na kay Lord dahil binigyan Niya ako ng isang babaeng kagaya mo. Kaya palagi mong tatandaan na kahit anong mangyari sa’ting dalawa, andito lang ako palagi, and I will always and forever love you unconditionally! Once again, happy, happy birthday to my wonderful, beautiful, gorgeous, pretty, cutie, and lovable future GF! Enjoy your most wonderful day, my love love! I love you so much, always and forever! 💜💜💜
+  </p>
+</section>
+
+<div id="hearts-container"></div>
+
+<script>
+  const passwordInput = document.getElementById('password-input');
+  const submitBtn = document.getElementById('submit-btn');
+  const section0 = document.getElementById('section0');
+  const section1 = document.getElementById('section1');
+  const section2 = document.getElementById('section2');
+  const bgMusicBirthday = document.getElementById('bg-music-birthday');
+  const bgMusicRomance = document.getElementById('bg-music-romance');
+  const errorMessage = document.getElementById('error-message');
+  const nextBtn = document.getElementById('next-btn');
+  const heartsContainer = document.getElementById('hearts-container');
+
+  submitBtn.addEventListener('click', () => {
+    const password = passwordInput.value;
+    if (password === "06-09-25") {
+      bgMusicBirthday.play();
+      section0.style.opacity = '0';
+      setTimeout(() => {
+        section0.style.display = 'none';
+        section1.style.display = 'flex';
+        section1.style.opacity = '0';
+        setTimeout(() => {
+          section1.style.opacity = '1';
+        }, 10);
+      }, 500);
+    } else {
+      errorMessage.textContent = "Wrong password, please try 06-09-25";
+      errorMessage.style.display = "block";
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    section1.style.opacity = '0';
+    setTimeout(() => {
+      section1.style.display = 'none';
+      section2.style.display = 'flex';
+      section2.style.opacity = '0';
+      bgMusicBirthday.pause();
+      bgMusicRomance.play();
+      setTimeout(() => {
+        section2.style.opacity = '1';
+      }, 10);
+    }, 500);
+  });
+
+  window.onload = function() {
+    createHearts();
+  };
+
+  function createHearts() {
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random duration
+      heartsContainer.appendChild(heart);
+    }
+  }
+</script>
+
+</body>
+</html>
